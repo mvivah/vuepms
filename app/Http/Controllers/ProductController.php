@@ -9,6 +9,6 @@ class ProductController extends Controller
 {
     public function index()
     {
-        return inertia('Products/Index');
+        return inertia('products/Index');
     }
 }
