@@ -10,8 +10,7 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 class User extends Authenticatable
 {
     /** @use HasFactory<\Database\Factories\UserFactory> */
-    use HasFactory, Notifiable;
-
+       use HasFactory, Notifiable;
     /**
      * The attributes that are mass assignable.
      *
@@ -51,6 +50,10 @@ class User extends Authenticatable
             'email_verified_at' => 'datetime',
             'password' => 'hashed',
         ];
+    }
+        public function hasEnabledTwoFactorAuthentication()
+    {
+        return !is_null($this->two_factor_secret);
     }
     public function role()
     {
